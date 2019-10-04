@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- <context:component-scan base-package="com.in28minutes.spring.basics"/> -->
+	<!-- User Types start-->
+	<bean id="developerType" class="com.omnie.orderingsystem.entity.UserTypes">
+		<property name="userTypeName" value="DEVELOPER"></property>
+		<property name="isActive" value="true"></property>
+	</bean>
+	
+	<bean id="adminType" class="com.omnie.orderingsystem.entity.UserTypes">
+		<property name="userTypeName" value="ADMIN"></property>
+		<property name="isActive" value="true"></property>
+	</bean>
+	
+	<bean id="deliveryType" class="com.omnie.orderingsystem.entity.UserTypes">
+		<property name="userTypeName" value="DELIVERY"></property>
+		<property name="isActive" value="true"></property>
+	</bean>
+	
+	<bean id="employeeType" class="com.omnie.orderingsystem.entity.UserTypes">
+		<property name="userTypeName" value="EMPLOYEE"></property>
+		<property name="isActive" value="true"></property>
+	</bean>
+	
+	<bean id="customerType" class="com.omnie.orderingsystem.entity.UserTypes">
+		<property name="userTypeName" value="CUSTOMER"></property>
+		<property name="isActive" value="true"></property>
+	</bean>
+	
+	<!-- User Types end-->
+	
+	<!-- User Privilege -->
+	
+	<!--developer user Privilege -->
+	<bean id="devPrivilegeDashboad" class="com.omnie.orderingsystem.entity.UserPrivilege">
+		<property name="accessibility" value="FULL"></property>
+		<property name="isActive" value="true"></property>
+		<property name="isAccess" value="true"></property>
+		<property name="nodes" value="DASHBOARD"></property>
+		<property name="userTypes" ref="developerType"></property>
+	</bean>
+	
+	<bean id="devPrivilegeCustomers" class="com.omnie.orderingsystem.entity.UserPrivilege">
+		<property name="accessibility" value="FULL"></property>
+		<property name="isActive" value="true"></property>
+		<property name="isAccess" value="true"></property>
+		<property name="nodes" value="CUSTOMERS"></property>
+		<property name="userTypes" ref="developerType"></property>
+	</bean>
+	
+	<bean id="devPrivilegeDelivery" class="com.omnie.orderingsystem.entity.UserPrivilege">
+		<property name="accessibility" value="FULL"></property>
+		<property name="isActive" value="true"></property>
+		<property name="isAccess" value="true"></property>
+		<property name="nodes" value="DELIVERIES"></property>
+		<property name="userTypes" ref="developerType"></property>
+	</bean>
+	
+	<bean id="devPrivilegeReports" class="com.omnie.orderingsystem.entity.UserPrivilege">
+		<property name="accessibility" value="FULL"></property>
+		<property name="isActive" value="true"></property>
+		<property name="isAccess" value="true"></property>
+		<property name="nodes" value="REPORTS"></property>
+		<property name="userTypes" ref="developerType"></property>
+	</bean>
+	
+	<bean id="devPrivilegeMisc" class="com.omnie.orderingsystem.entity.UserPrivilege">
+		<property name="accessibility" value="FULL"></property>
+		<property name="isActive" value="true"></property>
+		<property name="isAccess" value="true"></property>
+		<property name="nodes" value="MISCELLANEOUS"></property>
+		<property name="userTypes" ref="developerType"></property>
+	</bean>
+	
+	<!--admin user Privilege -->
+	<bean id="adminPrivilegeDashboad" class="com.omnie.orderingsystem.entity.UserPrivilege">
+		<property name="accessibility" value="FULL"></property>
+		<property name="isActive" value="true"></property>
+		<property name="isAccess" value="true"></property>
+		<property name="nodes" value="DASHBOARD"></property>
+		<property name="userTypes" ref="adminType"></property>
+	</bean>
+	
+	<bean id="adminPrivilegeCustomers" class="com.omnie.orderingsystem.entity.UserPrivilege">
+		<property name="accessibility" value="FULL"></property>
+		<property name="isActive" value="true"></property>
+		<property name="isAccess" value="true"></property>
+		<property name="nodes" value="CUSTOMERS"></property>
+		<property name="userTypes" ref="adminType"></property>
+	</bean>
+	
+	<bean id="adminPrivilegeDelivery" class="com.omnie.orderingsystem.entity.UserPrivilege">
+		<property name="accessibility" value="FULL"></property>
+		<property name="isActive" value="true"></property>
+		<property name="isAccess" value="true"></property>
+		<property name="nodes" value="DELIVERIES"></property>
+		<property name="userTypes" ref="adminType"></property>
+	</bean>
+	
+	<bean id="adminPrivilegeReports" class="com.omnie.orderingsystem.entity.UserPrivilege">
+		<property name="accessibility" value="FULL"></property>
+		<property name="isActive" value="true"></property>
+		<property name="isAccess" value="true"></property>
+		<property name="nodes" value="REPORTS"></property>
+		<property name="userTypes" ref="adminType"></property>
+	</bean>
+	
+	<bean id="adminPrivilegeMisc" class="com.omnie.orderingsystem.entity.UserPrivilege">
+		<property name="accessibility" value="FULL"></property>
+		<property name="isActive" value="true"></property>
+		<property name="isAccess" value="true"></property>
+		<property name="nodes" value="MISCELLANEOUS"></property>
+		<property name="userTypes" ref="adminType"></property>
+	</bean>
+	
+	<!--employee user Privilege -->
+	
+	<bean id="employeePrivilegeDashboad" class="com.omnie.orderingsystem.entity.UserPrivilege">
+		<property name="accessibility" value="FULL"></property>
+		<property name="isActive" value="true"></property>
+		<property name="isAccess" value="true"></property>
+		<property name="nodes" value="DASHBOARD"></property>
+		<property name="userTypes" ref="employeeType"></property>
+	</bean>
+	
+	<bean id="employeePrivilegeCustomers" class="com.omnie.orderingsystem.entity.UserPrivilege">
+		<property name="accessibility" value="FULL"></property>
+		<property name="isActive" value="true"></property>
+		<property name="isAccess" value="true"></property>
+		<property name="nodes" value="CUSTOMERS"></property>
+		<property name="userTypes" ref="employeeType"></property>
+	</bean>
+	
+	<bean id="employeePrivilegeDelivery" class="com.omnie.orderingsystem.entity.UserPrivilege">
+		<property name="accessibility" value="FULL"></property>
+		<property name="isActive" value="true"></property>
+		<property name="isAccess" value="true"></property>
+		<property name="nodes" value="DELIVERIES"></property>
+		<property name="userTypes" ref="employeeType"></property>
+	</bean>
+	
+	<bean id="employeePrivilegeReports" class="com.omnie.orderingsystem.entity.UserPrivilege">
+		<property name="accessibility" value="FULL"></property>
+		<property name="isActive" value="true"></property>
+		<property name="isAccess" value="true"></property>
+		<property name="nodes" value="REPORTS"></property>
+		<property name="userTypes" ref="employeeType"></property>
+	</bean>
+
+	<!--Delivery user Privilege -->
+	<bean id="deliveryPrivilegeDelivery" class="com.omnie.orderingsystem.entity.UserPrivilege">
+		<property name="accessibility" value="FULL"></property>
+		<property name="isActive" value="true"></property>
+		<property name="isAccess" value="true"></property>
+		<property name="nodes" value="DELIVERIES"></property>
+		<property name="userTypes" ref="deliveryType"></property>
+	</bean>
+
+	<!-- Users -->
+	<bean id="developer" class="com.omnie.orderingsystem.entity.Users">
+		<property name="mobileNumber" value="9818421041"></property>
+		<property name="emailAddress" value="ram@omniesolutions.com"></property>
+		<property name="isActive" value="true"></property>
+		<property name="firstName" value="Ram"></property>
+		<property name="lastName" value="Kishor"></property>
+		<property name="userPassword" value="omnie"></property>
+		<property name="userTypeID" ref="developerType"></property>
+	</bean>
+	
+	<bean id="admin" class="com.omnie.orderingsystem.entity.Users">
+		<property name="mobileNumber" value="9818421040"></property>
+		<property name="emailAddress" value="sachin@gmail.com"></property>
+		<property name="isActive" value="true"></property>
+		<property name="firstName" value="Sachin"></property>
+		<property name="lastName" value="Singh"></property>
+		<property name="userPassword" value="omnie"></property>
+		<property name="userTypeID" ref="adminType"></property>
+	</bean>
+	
+	<!-- Countries -->
+	<bean id="CountriesIndia" class="com.omnie.orderingsystem.entity.Countries">
+		<property name="active" value="true"></property>	
+		<property name="continent" value="Asia"></property>	
+		<property name="countryAbr" value="IND"></property>
+		<property name="countryName" value="India"></property>	
+		<property name="latitude" value="28.47"></property>	
+		<property name="localName" value="Bharat/India"></property>	
+		<property name="longitude" value="77.03"></property>	
+		<property name="population" value="1013662000"></property>	
+		<property name="region" value="Southern and Central Asia"></property>	
+		<property name="surfaceArea" value="3287263"></property>
+		<property name="webCode" value="IN"></property>	
+	</bean>
+	
+	<bean id="StatesUP" class="com.omnie.orderingsystem.entity.States">
+		<property name="active" value="true"></property>	
+		<property name="stateName" value="Uttar Pradesh"></property>	
+		<property name="stateCode" value="UP"></property>
+		<property name="latitude" value="28.47"></property>	
+		<property name="longitude" value="77.03"></property>
+		<property name="countries" ref="CountriesIndia"></property>		
+	</bean>
+	
+	<bean id="CityNoida" class="com.omnie.orderingsystem.entity.Cities">
+		<property name="active" value="true"></property>	
+		<property name="cityName" value="Noida"></property>	
+		<property name="latitude" value="28.47"></property>	
+		<property name="longitude" value="77.03"></property>
+		<property name="states" ref="StatesUP"></property>		
+	</bean>
+	
+	<!-- AddressType -->
+	<bean id="AddressTypeHome" class="com.omnie.orderingsystem.entity.AddressType">
+		<property name="id" value="4"></property>
+		<property name="value" value="Home"></property>	
+		<property name="desciption" value="HOME"></property>	
+		<property name="isActive" value="true"></property>
+	</bean>
+	
+	<bean id="AddressTypeWork" class="com.omnie.orderingsystem.entity.AddressType">
+		<property name="id" value="4"></property>
+		<property name="value" value="Work"></property>	
+		<property name="desciption" value="WORK"></property>	
+		<property name="isActive" value="true"></property>
+	</bean>
+	
+	<bean id="AddressTypeOther" class="com.omnie.orderingsystem.entity.AddressType">
+		<property name="id" value="4"></property>
+		<property name="value" value="Other"></property>	
+		<property name="desciption" value="OTHER"></property>	
+		<property name="isActive" value="true"></property>
+	</bean>
+
+</beans>

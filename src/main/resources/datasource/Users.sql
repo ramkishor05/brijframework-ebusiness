@@ -1,0 +1,84 @@
+USE [OrderingSystemDB]
+GO
+
+INSERT INTO [dbo].[Users]
+           ([CreatedBy]
+           ,[CreatedDate]
+           ,[DisplayID]
+           ,[EmailAddress]
+           ,[FirstName]
+           ,[IsActive]
+           ,[LastName]
+           ,[MobileNumber]
+           ,[UpdatedBy]
+           ,[UpdatedDate]
+           ,[UserPassword]
+           ,[UserTypeID])
+     VALUES
+           ('Sachin'
+           ,CURRENT_TIMESTAMP
+           ,'Admin'
+           ,'sachin@gmail.com'
+           ,'sachin'
+           ,1
+           ,'Kumar'
+           ,9818421040
+           ,'sachin'
+           ,CURRENT_TIMESTAMP
+           ,'omnie'
+           ,1)
+           
+INSERT INTO [dbo].[Users]
+           ([CreatedBy]
+           ,[CreatedDate]
+           ,[DisplayID]
+           ,[EmailAddress]
+           ,[FirstName]
+           ,[IsActive]
+           ,[LastName]
+           ,[MobileNumber]
+           ,[UpdatedBy]
+           ,[UpdatedDate]
+           ,[UserPassword]
+           ,[UserTypeID])
+     VALUES
+           ('Krishan'
+           ,CURRENT_TIMESTAMP
+           ,'Admin'
+           ,'krishan@gmail.com'
+           ,'krishan'
+           ,1
+           ,'Kumar'
+           ,9818421044
+           ,'krishan'
+           ,CURRENT_TIMESTAMP
+           ,'omnie'
+           ,3)
+           
+INSERT INTO [dbo].[Users]
+           ([CreatedBy]
+           ,[CreatedDate]
+           ,[DisplayID]
+           ,[EmailAddress]
+           ,[FirstName]
+           ,[IsActive]
+           ,[LastName]
+           ,[MobileNumber]
+           ,[UpdatedBy]
+           ,[UpdatedDate]
+           ,[UserPassword]
+           ,[UserTypeID])
+     VALUES
+           ('Krishan'
+           ,CURRENT_TIMESTAMP
+           ,'Admin'
+           ,'krishan@gmail.com'
+           ,'krishan'
+           ,1
+           ,'Kumar'
+           ,9818421045
+           ,'krishan'
+           ,CURRENT_TIMESTAMP
+           ,'omnie'
+           ,4)
+GO

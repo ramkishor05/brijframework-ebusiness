@@ -1,0 +1,14 @@
+{
+	"id": "eoInvAppDetail",
+	"name": "EOAppDetail",
+	"type": "org.brijframework.ebusiness.modal.apps.EOAppDetail",
+	"uniqueKey": "displayOrder",
+	"scope": "SINGLETON",
+	"properties": {
+		"displayOrder": "1.3",
+		"internalHost": "localhost",
+		"externalHost": "localhost",
+		"internalPort": "8090",
+		"externalPort": "8090"
+	}
+}

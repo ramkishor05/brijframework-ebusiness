@@ -1,0 +1,21 @@
+[
+	{
+		"id": "eoInvAppMain",
+		"name": "EOApplication",
+		"uniqueKey": "appID",
+		"type": "org.brijframework.ebusiness.modal.apps.EOApplication",
+		"scope": "SINGLETON",
+		"properties": {
+			"appID": "INVERTORY_APP",
+			"appName": "INVERTORY APP",
+			"appLogo": "assert/app/logo/logo-crm.png",
+			"appURL": "http://localhost:8084/org.brijframework-store/#/invontory",
+			"appDetail": {
+				"@ref": "eoInvAppDetail"
+			},
+			"appEdition": {
+				"@ref": "eoInvAppEdition"
+			}
+		}
+	}
+]

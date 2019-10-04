@@ -1,0 +1,19 @@
+[
+	{
+		"id": "eoInvAppEdition",
+		"name": "EOAppEdition",
+		"type": "org.brijframework.ebusiness.modal.apps.EOAppEdition",
+		"uniqueKey": "displayOrder",
+		"scope": "SINGLETON",
+		"properties": {
+			"description": "Customer relationship for employee , sales man , and othor person",
+			"monthlyRate": "11.50",
+			"displayOrder": "1.3",
+			"startPayDay": "30",
+			"trail": true,
+			"appFeature": {
+				"@ref": "eoInvAppFeature"
+			}
+		}
+	}
+]

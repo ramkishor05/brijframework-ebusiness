@@ -1,0 +1,4 @@
+﻿Id,Value,Desciption,IsActive,CreatedBy,CreatedDate,UpdatedBy,UpdatedDate
+1,Home,NULL,1,NULL,2019-06-13 14:50:36.667,NULL,NULL
+2,Work,NULL,1,NULL,2019-06-13 14:50:39.460,NULL,NULL
+3,Other,NULL,1,NULL,2019-06-13 14:50:46.167,NULL,NULL

@@ -1,0 +1,6 @@
+﻿ID,countryAbr,countryName,localName,webCode,region,continent,latitude,longitude,surfaceArea,population
+1,BRA,Brazil,Brasil,BR,South America,South America,-10,-55,8547403,170115000
+2,CHN,China,Zhongquo,CN,Eastern Asia,Asia,35,105,9572900,1277558000
+3,FRA,France,,FR,Western Europe,Europe,47,2,551500,59225700
+4,IND,India,Bharat/India,IN,Southern and Central Asia,Asia,28.47,77.03,3287263,1013662000
+5,USA,USA,United States,US,North America,North America,38,-97,9363520,278357000
