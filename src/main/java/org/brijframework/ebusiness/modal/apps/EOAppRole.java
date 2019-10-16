@@ -11,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.brijframework.ebusiness.modal.EORole;
+import org.brijframework.ebusiness.modal.EOUserRole;
 
 
 @Entity
@@ -39,7 +39,7 @@ public class EOAppRole implements Serializable{
     
     @ManyToOne
 	@JoinColumn(name = "ROLE_ID", nullable = false)
-    private EORole role;
+    private EOUserRole role;
 
 	@ManyToOne
 	@JoinColumn(name = "APP_ID", nullable = false)
@@ -69,11 +69,11 @@ public class EOAppRole implements Serializable{
 		this.appMenuID = appMenuID;
 	}
 
-	public EORole getRole() {
+	public EOUserRole getRole() {
 		return role;
 	}
 
-	public void setRole(EORole role) {
+	public void setRole(EOUserRole role) {
 		this.role = role;
 	}
 

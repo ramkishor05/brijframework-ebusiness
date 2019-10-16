@@ -7,8 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 @Entity
+@Table(name="APP_EDITION")
 public class EOAppEdition implements Serializable{
 	/**
 	 * 
@@ -38,6 +41,7 @@ public class EOAppEdition implements Serializable{
 	public double version;
 	
 	@ManyToOne
+	@JoinColumn(name="FEATURE_ID")
 	private EOAppFeature appFeature;
 
 	public EOAppFeature getAppFeature() {

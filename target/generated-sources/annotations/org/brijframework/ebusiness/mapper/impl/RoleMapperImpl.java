@@ -3,76 +3,100 @@ package org.brijframework.ebusiness.mapper.impl;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Generated;
-import org.brijframework.ebusiness.dto.EORoleDTO;
+import org.brijframework.ebusiness.dto.EOUserRoleDTO;
+import org.brijframework.ebusiness.dto.rqrs.RoleRequest;
+import org.brijframework.ebusiness.dto.rqrs.RoleResponse;
 import org.brijframework.ebusiness.mapper.RoleMapper;
-import org.brijframework.ebusiness.modal.EORole;
+import org.brijframework.ebusiness.modal.EOUserRole;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2019-10-03T18:51:54+0530",
+    date = "2019-10-16T15:35:23+0530",
     comments = "version: 1.3.0.Final, compiler: javac, environment: Java 1.8.0_111 (Oracle Corporation)"
 )
 @Component
 public class RoleMapperImpl implements RoleMapper {
 
     @Override
-    public EORoleDTO mapToDTO(EORole eoRole) {
+    public EOUserRoleDTO mapToDTO(EOUserRole eoRole) {
         if ( eoRole == null ) {
             return null;
         }
 
-        EORoleDTO eORoleDTO = new EORoleDTO();
+        EOUserRoleDTO eOUserRoleDTO = new EOUserRoleDTO();
 
-        eORoleDTO.setId( eoRole.getId() );
-        eORoleDTO.setPosition( eoRole.getPosition() );
-        eORoleDTO.setRoleName( eoRole.getRoleName() );
-        eORoleDTO.setRoleID( eoRole.getRoleID() );
-
-        return eORoleDTO;
+        return eOUserRoleDTO;
     }
 
     @Override
-    public EORole mapToDAO(EORoleDTO eoRoleDTO) {
+    public EOUserRole mapToDAO(EOUserRoleDTO eoRoleDTO) {
         if ( eoRoleDTO == null ) {
             return null;
         }
 
-        EORole eORole = new EORole();
+        EOUserRole eOUserRole = new EOUserRole();
 
-        eORole.setId( eoRoleDTO.getId() );
-        eORole.setPosition( eoRoleDTO.getPosition() );
-        eORole.setRoleName( eoRoleDTO.getRoleName() );
-        eORole.setRoleID( eoRoleDTO.getRoleID() );
-
-        return eORole;
+        return eOUserRole;
     }
 
     @Override
-    public List<EORole> mapToDAO(List<EORoleDTO> findAll) {
+    public List<EOUserRole> mapToDAO(List<EOUserRoleDTO> findAll) {
         if ( findAll == null ) {
             return null;
         }
 
-        List<EORole> list = new ArrayList<EORole>( findAll.size() );
-        for ( EORoleDTO eORoleDTO : findAll ) {
-            list.add( mapToDAO( eORoleDTO ) );
+        List<EOUserRole> list = new ArrayList<EOUserRole>( findAll.size() );
+        for ( EOUserRoleDTO eOUserRoleDTO : findAll ) {
+            list.add( mapToDAO( eOUserRoleDTO ) );
         }
 
         return list;
     }
 
     @Override
-    public List<EORoleDTO> mapToDTO(List<EORole> eoRoleDTO) {
+    public List<EOUserRoleDTO> mapToDTO(List<EOUserRole> eoRoleDTO) {
         if ( eoRoleDTO == null ) {
             return null;
         }
 
-        List<EORoleDTO> list = new ArrayList<EORoleDTO>( eoRoleDTO.size() );
-        for ( EORole eORole : eoRoleDTO ) {
-            list.add( mapToDTO( eORole ) );
+        List<EOUserRoleDTO> list = new ArrayList<EOUserRoleDTO>( eoRoleDTO.size() );
+        for ( EOUserRole eOUserRole : eoRoleDTO ) {
+            list.add( mapToDTO( eOUserRole ) );
         }
 
         return list;
+    }
+
+    @Override
+    public EOUserRole getUserRole(RoleRequest roleRequest) {
+        if ( roleRequest == null ) {
+            return null;
+        }
+
+        EOUserRole eOUserRole = new EOUserRole();
+
+        eOUserRole.setId( roleRequest.getId() );
+        eOUserRole.setPosition( roleRequest.getPosition() );
+        eOUserRole.setRoleName( roleRequest.getRoleName() );
+        eOUserRole.setRoleID( roleRequest.getRoleID() );
+
+        return eOUserRole;
+    }
+
+    @Override
+    public RoleResponse getRoleResponse(EOUserRole eoUserRole) {
+        if ( eoUserRole == null ) {
+            return null;
+        }
+
+        RoleResponse roleResponse = new RoleResponse();
+
+        roleResponse.setId( eoUserRole.getId() );
+        roleResponse.setPosition( eoUserRole.getPosition() );
+        roleResponse.setRoleName( eoUserRole.getRoleName() );
+        roleResponse.setRoleID( eoUserRole.getRoleID() );
+
+        return roleResponse;
     }
 }

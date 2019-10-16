@@ -12,10 +12,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-import org.brijframework.ebusiness.modal.EORole;
+import org.brijframework.ebusiness.modal.EOUserRole;
 
 @Entity
+@Table(name="APP_INFO")
 public class EOApplication implements Serializable {
 
 	/**
@@ -114,7 +116,7 @@ public class EOApplication implements Serializable {
 		this.appRoleArray = appRoleArray;
 	}
 
-	public EOAppRole appRoleForRole(EORole eoRole) {
+	public EOAppRole appRoleForRole(EOUserRole eoRole) {
 		for (EOAppRole appRole : this.appRoleArray) {
 			if (appRole.getRole().getId() == eoRole.getId()) {
 				return appRole;

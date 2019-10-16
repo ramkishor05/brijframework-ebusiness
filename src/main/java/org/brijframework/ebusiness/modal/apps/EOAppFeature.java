@@ -29,10 +29,10 @@ public class EOAppFeature implements Serializable{
 	@Column(name="DISPLAY_ORDER")
 	private double displayOrder;
 	
-	@Column(name="VIEV_DETAIL")
+	@Column(name="VIEW_DETAIL")
 	private String viewDetail;
 	
-	@OneToMany
+	@OneToMany(mappedBy="appFeature")
 	private List<EOAppEdition> appEditions;
 
 	public String getDescription() {

@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.web.bind.annotation.RequestBody;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,10 +15,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class EOTarget {
 
 	@JsonProperty("target_id")
-	String targetId;
+	private String targetId;
 
 	@JsonProperty("value")
-	String value;
+	private String value;
 
 	public String getTargetId() {
 		return targetId;
@@ -39,31 +37,30 @@ public class EOTarget {
 	}
 
 	public static void main(String[] args) {
-		Map<String, List<EOTarget>> map=new HashMap<String, List<EOTarget>>();
 		
-		List<EOTarget> titlelist=new ArrayList<EOTarget>();
-		EOTarget eoTitleTarget=new EOTarget();
-		eoTitleTarget.setValue("test notify");
-		titlelist.add(eoTitleTarget);
-		map.put("title", titlelist);
+		Map<String, List<EOTarget>> listMapper = new HashMap<String, List<EOTarget>>();
 		
+		List<EOTarget> titleList=new ArrayList<EOTarget>();
+		EOTarget titleTarget=new EOTarget();
+		titleTarget.setValue( "Test Notify" );
+		titleList.add(titleTarget);
 		
-		List<EOTarget> typelist=new ArrayList<EOTarget>();
-		EOTarget eotypeTarget=new EOTarget();
-		eotypeTarget.setTargetId("notification");
-		typelist.add(eotypeTarget);
-		map.put("type", typelist);
+		listMapper.put( "title" , titleList );
 		
-		ObjectMapper mapper=new ObjectMapper();
+		List<EOTarget> typeList=new ArrayList<EOTarget>();
+		
+		EOTarget typeTarget=new EOTarget();
+		typeTarget.setTargetId( "Notification" );
+		typeList.add(typeTarget);
+		
+		listMapper.put( "type" , typeList );
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
 		try {
-			String json=mapper.writeValueAsString(map);
-			System.out.println(json);
+			mapper.writeValueAsString(listMapper);
 		} catch (JsonProcessingException e) {
-			//e.printStackTrace();
+			e.printStackTrace();
 		}
-	}
-	
-	public void add(@RequestBody Map<String, List<EOTarget>> map) {
-		
 	}
 }
