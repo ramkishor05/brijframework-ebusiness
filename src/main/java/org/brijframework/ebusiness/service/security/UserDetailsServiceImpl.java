@@ -35,8 +35,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 		if (!findUserLogin.isPresent()) {
 			throw new UsernameNotFoundException("Invalid username or password.");
 		}
-		org.springframework.security.core.userdetails.User userDetails = new org.springframework.security.core.userdetails.User(
-				findUserLogin.get().getUsername(), bcryptEncoder.encode(findUserLogin.get().getPassword()), getAuthority(findUserLogin.get()));
+		org.springframework.security.core.userdetails.User userDetails = new org.springframework.security.core.userdetails.User(findUserLogin.get().getUsername(), bcryptEncoder.encode(findUserLogin.get().getPassword()), getAuthority(findUserLogin.get()));
 		return userDetails;
 	}
 

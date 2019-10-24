@@ -35,10 +35,7 @@ public class EOUserRole implements Serializable {
 	private List<EOUserLogin> users;
 	
 	public EOUserRole() {
-		// TODO Auto-generated constructor stub
 	}
-	
-	
 
 	public EOUserRole(int position, String roleName, String roleID) {
 		super();
@@ -87,4 +84,10 @@ public class EOUserRole implements Serializable {
 		this.users = users;
 	}
 
+	@Override
+	public String toString() {
+		return "EOUserRole [id=" + id + ", position=" + position + ", roleName=" + roleName + ", roleID=" + roleID;
+	}
+
+	
 }

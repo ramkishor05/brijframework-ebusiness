@@ -1,6 +1,10 @@
 package org.brijframework.ebusiness.config.security;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -25,6 +29,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private JwtAuthenticationEntryPoint unauthorizedHandler;
+    
+    @Autowired
+    @Qualifier("securityMapper")
+    private Map<String, List<String>> securityMapper;
 
     @Override
     @Bean
@@ -49,13 +57,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+    	System.out.println("securityMapper="+securityMapper);
          http.cors().and().csrf().disable().authorizeRequests()
-        .antMatchers("/swagger-resources/**").permitAll()
-        .antMatchers("/swagger-resources").permitAll()
-        .antMatchers("/api/**").permitAll()
-        .antMatchers("/actuator/*").permitAll()
-	    .antMatchers("/auth/token", "/security/register", "/security/login").permitAll()
-	    .antMatchers("/configuration/ui","/webjars/**","/swagger-ui.html","/swagger-resources","/configuration/security","/v2/api-docs").permitAll()
+        .antMatchers("/application/**").hasAnyRole("OWNER")
+	    .antMatchers("/api/**","/actuator/*","/auth/token", "/security/register", "/security/login","/swagger-resources","/swagger-resources/**","/configuration/ui","/webjars/**","/swagger-ui.html","/swagger-resources","/configuration/security","/v2/api-docs").permitAll()
 	    .anyRequest().authenticated()
 	    .and()
 	    .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()

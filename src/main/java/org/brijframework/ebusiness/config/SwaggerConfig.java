@@ -1,5 +1,6 @@
 package org.brijframework.ebusiness.config;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.context.annotation.Bean;
@@ -18,8 +19,6 @@ import springfox.documentation.service.SecurityReference;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger.web.ApiKeyVehicle;
-import springfox.documentation.swagger.web.SecurityConfiguration;
 
 @Configuration
 public class SwaggerConfig {
@@ -31,32 +30,22 @@ public class SwaggerConfig {
 				.build().apiInfo(apiInfo()).securityContexts(Lists.newArrayList(securityContext())).securitySchemes(Lists.newArrayList(apiKey())).forCodeGeneration(true);
 	}
 
-	private ApiKey apiKey() {
-		return new ApiKey("Authorization", "Authorization", "header");
-	}
-
 	private ApiInfo apiInfo() {
-		ApiInfo apiInfo = new ApiInfoBuilder().title("Your REST API").description("Your REST API for web app")
-				.version("1.0").termsOfServiceUrl("Terms of service").build();
+		ApiInfo apiInfo = new ApiInfoBuilder().title("EBusiness API").description("EBusiness api for application").version("1.0").termsOfServiceUrl("Terms of service").build();
 		return apiInfo;
 	}
 
-	@SuppressWarnings("deprecation")
-	@Bean
-	public SecurityConfiguration security() {
-		return new SecurityConfiguration(null, null, null, null, "Bearer access_token", ApiKeyVehicle.HEADER,
-				"Authorization", ",");
-	}
+	 private SecurityContext securityContext() {
+        return SecurityContext.builder().securityReferences(defaultAuth()).forPaths(PathSelectors.regex("/.*")).build();
+     }
 
-	private SecurityContext securityContext() {
-		return SecurityContext.builder().securityReferences(defaultAuth()).forPaths(PathSelectors.regex("/anyPath.*"))
-				.build();
-	}
+     private List<SecurityReference> defaultAuth() {
+       final AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
+       final AuthorizationScope[] authorizationScopes = new AuthorizationScope[]{authorizationScope};
+       return Collections.singletonList(new SecurityReference("Bearer", authorizationScopes));
+     }
 
-	private List<SecurityReference> defaultAuth() {
-		AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
-		AuthorizationScope[] authorizationScopes = new AuthorizationScope[1];
-		authorizationScopes[0] = authorizationScope;
-		return Lists.newArrayList(new SecurityReference("AUTHORIZATION", authorizationScopes));
-	}
+     private ApiKey apiKey() {
+       return new ApiKey("Bearer", "Authorization", "header");
+     } 
 }
