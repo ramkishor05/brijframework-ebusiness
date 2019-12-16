@@ -4,6 +4,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import org.brijframework.ebusiness.dto.EOUserProfileDTO;
+import org.brijframework.ebusiness.enums.UserType;
 public class RegisterRequest {
 
 	@NotEmpty

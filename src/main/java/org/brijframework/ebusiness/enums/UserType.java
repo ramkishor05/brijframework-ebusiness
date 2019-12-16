@@ -27,4 +27,9 @@ public enum UserType {
 		}
 		return null;
 	}
+	
+	@Override
+	public String toString() {
+		return type.toString();
+	}
 }

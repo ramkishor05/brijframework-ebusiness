@@ -66,6 +66,13 @@ public class TokenProvider implements Serializable {
         final Date expiration = getExpirationDateFromToken(token);
         return expiration.before(new Date());
     }
+    
+    public long getTokenExpired(String token) {
+        final Date expiration = getExpirationDateFromToken(token);
+        
+        long diff = expiration.getTime() - new Date().getTime();
+        return diff / (60 * 1000);
+    }
 
     public String generateToken(Authentication authentication) {
     	logger.fine("Inside TokenProvider : generateToken");
@@ -90,6 +97,10 @@ public class TokenProvider implements Serializable {
     	}catch (Exception e) {
 			return false;
 		}
+    }
+    
+    public Boolean validateToken(String token) {
+    	return !isTokenExpired(token);
     }
 
     public UsernamePasswordAuthenticationToken getAuthentication(final String token, final Authentication existingAuth, final UserDetails userDetails) {
