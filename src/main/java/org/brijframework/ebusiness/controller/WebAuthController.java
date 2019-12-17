@@ -73,6 +73,9 @@ public class WebAuthController {
 	@PostMapping("/register")
 	public RegisterResponse doRegister(@RequestBody RegisterRequest registerRequest) {
 		UserType type=UserType.find(registerRequest.getType());
+		if(type==null) {
+			
+		}
 		EOUserProfile eoUserProfile=userProfileMapper.mapToDAO(registerRequest.getUserProfile());
 		userProfileRepo.save(eoUserProfile);
 		EOUserLogin eoUserLogin=userLoginMapper.getLoginUserRegisterRequest(registerRequest);
@@ -94,7 +97,6 @@ public class WebAuthController {
 			addCustomer(eoUserLogin);
 			break;
 		}
-		
 		return userLoginMapper.getLoginUserRegisterResponse(eoUserLogin);
 	}
 	
