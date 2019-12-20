@@ -4,7 +4,6 @@ import org.brijframework.ebusiness.enums.UserRole;
 import org.brijframework.ebusiness.modal.EOUserRole;
 import org.brijframework.ebusiness.repo.UserRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
@@ -22,8 +21,6 @@ public class EbusinessApplicationListener implements ApplicationListener<Context
     			userRoleRepo.saveAndFlush(new EOUserRole(userRole.getPosition(),userRole.getRole(),userRole.getRole()));
     		}
     	}
-    	
-    	ApplicationContext applicationContext = event.getApplicationContext();
-    	
+    
     }
 }

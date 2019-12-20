@@ -57,7 +57,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-    	System.out.println("securityMapper="+securityMapper);
+    	 System.out.println("securityMapper="+securityMapper);
          http.cors().and().csrf().disable().authorizeRequests()
         .antMatchers("/application/**").hasAnyRole("OWNER")
 	    .antMatchers("/api/**","/actuator/*","/auth/token", "/security/register", "/security/login","/swagger-resources","/swagger-resources/**","/configuration/ui","/webjars/**","/swagger-ui.html","/swagger-resources","/configuration/security","/v2/api-docs").permitAll()
